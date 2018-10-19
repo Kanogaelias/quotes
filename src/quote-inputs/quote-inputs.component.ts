@@ -7,11 +7,15 @@ import { Quote } from '../models/quote.class';
     styleUrls: ['./quote-inputs.component.scss']
 
 })
-export class QuoteInputsCOmponent{
+export class QuoteInputsCOmponent {
     public quote  =  new Quote('', '')
     constructor(public quoteService: QuoteService){
-      this.quoteService.getRandomQUote().subscribe((data: Quote) => {
+    this.getQuote();
+}
+ public getQuote() {
+    this.quoteService.getRandomQUote().subscribe((data: Quote) => {
         this.quote = new Quote(data.quote, data.author)    
+        console.log(this.quote);
       });
     }
-}
+ }

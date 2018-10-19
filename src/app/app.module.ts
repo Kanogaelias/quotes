@@ -4,10 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { QuoteService } from '../services/quote.service';
+import { QuoteInputsCOmponent } from '../quote-inputs/quote-inputs.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuoteInputsCOmponent 
+    
   ],
   imports: [
     BrowserModule,
