@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { QuoteService } from '../services/quote.service'
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { QuoteService } from '../services/quote.service';
 import { Quote } from '../models/quote.class';
 @Component({
     selector: 'quote-inputs',
@@ -8,7 +8,7 @@ import { Quote } from '../models/quote.class';
 
 })
 export class QuoteInputsCOmponent {
-    public quote  =  new Quote('', '')
+    public quote  =  new Quote("0", "new Date")
     constructor(public quoteService: QuoteService){
     this.getQuote();
 }
@@ -18,4 +18,9 @@ export class QuoteInputsCOmponent {
         console.log(this.quote);
       });
     }
+    @Output() addQuote=new EventEmitter<Quote>();
+    submitQuote(){
+        this.addQuote.emit(this.quote);
+    }
  }
+ 
